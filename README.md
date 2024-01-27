@@ -231,7 +231,8 @@ would block⇒블로킹에 걸릴 뻔했는데 논블록 소켓을 통해서 블
 
 4번에서 would block일 경우에는 아무런 행위도 하지 않는다고 하였다. 하지만 connect 함수를 실행했고 그 반환 값이 would block일 경우에는 이야기가 다르다. 왜냐하면 이미 connect 함수를 통해서 소켓 안에서 무슨 일이 일어났다는 뜻이기 때문이다. 소켓은 상대방의 TCP 연결 끝점으로 연결을 시도하다가 would block이 된 것이므로 소켓은 이미 ‘연결 과정이 진행 중인 상태’로 변한다. 그러므로 connect의 재실행을 막기 위해서는 별다른 조치를 취해야 한다. 그 해결 방법 중 ‘0바이트 송신’이 있다. TCP는 스트림 기반 프로토콜이기 때문에 0바이트를 보내는 것은 사실상 아무것도 하지 않는다는 뜻이다. 그러므로 0바이트를 보내는 것이 성공한다면 해당 연결이 성공적으로 이루어진 것이라고 볼 수 있다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0a982362-35b3-40aa-8fd7-574c450959a7/4febd8d6-d081-4a49-b63c-7fd881a47147/Untitled.png)
+<img width="640" alt="Untitled" src="https://github.com/SeoGeonhyuk/2023WinterTIL/assets/60954160/f15ef8c6-bf67-4402-a37b-8dfd2121a75e">
+<br>
 
 ### 논블록 소켓의 문제점
 
